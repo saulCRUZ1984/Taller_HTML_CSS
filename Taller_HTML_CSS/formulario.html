@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Formulario de Registro de Estudiante</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    fieldset {
+      margin-bottom: 15px;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    legend {
+      font-weight: bold;
+      color: #2c3e50;
+      padding: 0 5px;
+    }
+    div.campo {
+      margin-bottom: 12px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    input[type="text"], input[type="number"], input[type="email"], input[type="date"], input[type="time"], select, textarea {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .radio-group, .checkbox-group {
+      display: flex;
+      gap: 15px;
+    }
+    .radio-group label, .checkbox-group label {
+      font-weight: normal;
+    }
+    button[type="submit"] {
+      background-color: #27ae60;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button[type="submit"]:hover {
+      background-color: #219150;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Registro de Estudiante</h1>
+
+  <form action="#" method="POST" enctype="multipart/form-data">
+    
+    <!-- Código de registro oculto (input hidden) -->
+    <input type="hidden" name="codigo_registro" value="REG-2026-001">
+
+    <!-- A. Datos personales -->
+    <fieldset>
+      <legend>Datos Personales</legend>
+      
+      <div class="campo">
+        <label for="codigo_estudiante">Código de Estudiante:</label>
+        <input type="text" id="codigo_estudiante" name="codigo_estudiante" value="EST-998877" readonly>
+      </div>
+
+      <div class="campo">
+        <label for="nombre">Nombre (*):</label>
+        <input type="text" id="nombre" name="nombre" required minlength="3" maxlength="20">
+      </div>
+
+      <div class="campo">
+        <label for="apellido">Apellido (*):</label>
+        <input type="text" id="apellido" name="apellido" required minlength="3" maxlength="20">
+      </div>
+
+      <div class="campo">
+        <label for="edad">Edad (*):</label>
+        <input type="number" id="edad" name="edad" required min="1" max="100">
+      </div>
+
+      <div class="campo">
+        <label for="fecha_nacimiento">Fecha de Nacimiento:</label>
+        <input type="date" id="fecha_nacimiento" name="fecha_nacimiento">
+      </div>
+
+      <div class="campo">
+        <label for="hora">Hora de Registro:</label>
+        <input type="time" id="hora" name="hora">
+      </div>
+
+      <div class="campo">
+        <label>Género:</label>
+        <div class="radio-group">
+          <label><input type="radio" name="genero" value="masculino"> Masculino</label>
+          <label><input type="radio" name="genero" value="femenino"> Femenino</label>
+          <label><input type="radio" name="genero" value="otro"> Otro</label>
+        </div>
+      </div>
+    </fieldset>
+
+   
+    <fieldset>
+      <legend>Datos de Contacto</legend>
+
+      <div class="campo">
+        <label for="email">Correo Electrónico:</label>
+        <input type="email" id="email" name="email">
+      </div>
+
+      <div class="campo">
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" id="telefono" name="telefono">
+      </div>
+
+      <div class="campo">
+        <label for="direccion">Dirección:</label>
+        <textarea id="direccion" name="direccion" rows="3"></textarea>
+      </div>
+
+      <div class="campo">
+        <label for="ciudad">Ciudad:</label>
+        <select id="ciudad" name="ciudad">
+          <option value="">-- Seleccionar --</option>
+          <option value="guayaquil">Guayaquil</option>
+          <option value="quito">Quito</option>
+          <option value="cuenca">Cuenca</option>
+          <option value="otra">Otra</option>
+        </select>
+      </div>
+    </fieldset>
+
+    
+    <fieldset>
+      <legend>Información Adicional</legend>
+
+      <div class="campo">
+        <label>Servicios de Interés:</label>
+        <div class="checkbox-group">
+          <label><input type="checkbox" name="servicios[]" value="biblioteca"> Biblioteca</label>
+          <label><input type="checkbox" name="servicios[]" value="deportes"> Deportes</label>
+          <label><input type="checkbox" name="servicios[]" value="tutorias"> Tutorías</label>
+        </div>
+      </div>
+
+      <div class="campo">
+        <label for="fotografia">Fotografía del Estudiante:</label>
+        <input type="file" id="fotografia" name="fotografia" accept="image/*">
+      </div>
+    </fieldset>
+
+    
+    <div style="text-align: center;">
+      <button type="submit">Guardar</button>
+    </div>
+
+  </form>
+
+  <p style="text-align: center;"><a href="index.html">Volver a Inicio</a></p>
+
+</body>
+</html>
